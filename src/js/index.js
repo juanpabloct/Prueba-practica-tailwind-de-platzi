@@ -1,3 +1,5 @@
+import { llamado, saludo } from "./clickeado.js";
+
 const informacionComida = [
   {
     nombre: "pizza con jamon y queso",
@@ -40,9 +42,8 @@ antes.addEventListener("click", () => {
   if (contador < 0) {
     contador = informacionComida.length - 1;
   }
-  datos = copiaInformacionComida[contador];
+  const datos = copiaInformacionComida[contador];
   slider(datos);
-  console.log(datos);
 });
 const siguiente = document.querySelector(".siguiente");
 siguiente.addEventListener("click", () => {
@@ -51,14 +52,16 @@ siguiente.addEventListener("click", () => {
     contador = 0;
   }
   let datos = copiaInformacionComida[contador];
-  console.log(datos);
   slider(datos);
+  const button = document.querySelector(".button");
 });
+const tamañoPantalla = window.innerWidth;
+const carrusel = document.querySelector(".carrusel");
+let seleccionado;
 function slider(params) {
-  const carrusel = document.querySelector(".carrusel");
   const { nombre, precio, descripcion, url } = params;
   const retornar = `<div
-    class="border-2 border-slate-500 w-11/12 h-80 md:w-2/6 md:h-80 text-center flex flex-col items-center rounded-md"
+    class="border-2 border-slate-500 w-11/12 h-80 md:w-2/6 md:h-80 text-center flex flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500"
   >
     <img
       class="w-3/5 h-3/4"
@@ -69,42 +72,29 @@ function slider(params) {
     <div class="font-medium">Valor: 100$</div>
     <div class="text-sm md:text-lg">
       ${descripcion}
-    </div>
-    <button
-      class="bg-gradient-to-r mt-2 mb-4 to-gray-600 from-orange-100 w-16 rounded-md text-sm"
+      </div>
+    <a class="bg-gradient-to-r mt-2 mb-4 to-gray-600 from-orange-100 w-16 md:w-3/4 rounded-md button" ><button
+    
+      class=" text-sm"
     >
-      Comprar
-    </button>
-  </div>`;
-  carrusel.innerHTML = retornar;
+    Comprar
+    </button></a>
+    </div>`;
+  return tamañoPantalla < "767"
+    ? (carrusel.innerHTML = retornar)
+    : (carrusel.innerHTML += retornar);
 }
-const tamañoPantalla = window.innerWidth;
 if (tamañoPantalla < "767") {
   slider(informacionComida[0]);
 }
 if (tamañoPantalla > "767") {
-  informacionComida.map((item) => {
-    const { nombre, precio, descripcion, url } = item;
-    const carrusel = document.querySelector(".carrusel");
-    const valores = `<div
-    class="border-2 mt-3 border-slate-500 w-11/12 h-80 md:w-2/6 md:h-80 text-center flex flex-col items-center rounded-md shadow-md shadow-slate-500 hover:shadow-lg hover:shadow-sky-500"
-  >
-    <img
-      class="w-3/5 h-3/4"
-      src="${url}"
-      alt="${nombre}"
-    />
-    <div class="capitalize font-semibold">${nombre}</div>
-    <div class="font-medium">Valor: 100$</div>
-    <div class="text-sm md:text-lg">
-      ${descripcion}
-    </div>
-    <button
-      class="bg-gradient-to-r mt-2 mb-4 to-gray-600 from-orange-100 w-16 rounded-md text-sm"
-    >
-      Comprar
-    </button>
-  </div>`;
-    carrusel.innerHTML += valores;
+  informacionComida.forEach((element) => {
+    const { nombre, url, descripcion, precio } = element;
+    slider(element);
+    const button = document.querySelector(".button");
   });
+}
+const hijos = carrusel.children;
+function name() {
+  console.log(contador);
 }
