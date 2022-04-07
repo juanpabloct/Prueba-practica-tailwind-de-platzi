@@ -61,7 +61,7 @@ let seleccionado;
 function slider(params) {
   const { nombre, precio, descripcion, url } = params;
   const retornar = `<div
-    class="border-2 border-slate-500 w-11/12 h-80 md:w-2/6 md:h-80 text-center flex flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500"
+    class="border-2 border-slate-500 w-11/12 h-1/2 md:w-2/6 md:h-1/2 text-center flex flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500 relative"
   >
     <img
       class="w-3/5 h-3/4"
@@ -73,7 +73,8 @@ function slider(params) {
     <div class="text-sm md:text-lg">
       ${descripcion}
       </div>
-    <a class="bg-gradient-to-r mt-2 mb-4 to-gray-600 from-orange-100 w-16 md:w-3/4 rounded-md button" ><button
+    <a class="bg-gradient-to-r mt-2 mb-5
+     to-gray-600 from-orange-100 w-16 md:w-3/4 rounded-md button relative" ><button
     
       class=" text-sm"
     >
