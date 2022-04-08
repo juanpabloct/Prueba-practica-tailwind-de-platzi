@@ -1,5 +1,3 @@
-import { llamado, saludo } from "./clickeado.js";
-
 const informacionComida = [
   {
     nombre: "pizza con jamon y queso",
@@ -34,6 +32,9 @@ const informacionComida = [
     url: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=500&q=80",
   },
 ];
+function alertando() {
+  alert("Hola valery estas aprendiendo");
+}
 let contador = 0;
 const copiaInformacionComida = informacionComida.slice();
 const antes = document.querySelector(".antes");
@@ -96,6 +97,3 @@ if (tamañoPantalla > "767") {
   });
 }
 const hijos = carrusel.children;
-function name() {
-  console.log(contador);
-}

@@ -1,5 +1,6 @@
 const cantidad = document.querySelector(".boton");
 const carrusel = document.querySelector(".carrusel");
+console.log(carrusel);
 const cBoton = document.querySelector(".c-boton");
 const hijosCboton = cBoton.children;
 const allCarrusel = carrusel.children;
