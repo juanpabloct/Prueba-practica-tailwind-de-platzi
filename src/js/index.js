@@ -62,10 +62,10 @@ let seleccionado;
 function slider(params) {
   const { nombre, precio, descripcion, url } = params;
   const retornar = `<div
-    class="border-2 border-slate-500 w-11/12 h-96 sm:h-96 md:w-4/5 md:h-full  text-center flex flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500 relative"
+    class=" col-span-1 border-2 border-slate-500 w-11/12 h-96 sm:h-96 md:w-4/5 md:h-full  text-center flex flex-col md:flex-col lg:flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500 relative"
   >
     <img
-      class="w-3/5 h-3/4 rounded-md"
+      class="w-3/4 h-60 lg:w-3/5 lg:h-3/4 rounded-md"
       src="${url}"
       alt="${nombre}"
     />
@@ -74,6 +74,7 @@ function slider(params) {
     <div class="text-sm md:text-lg">
       ${descripcion}
       </div>
+      <div>&starf; &starf; &starf; &starf; &star;</div>
     <a class="bg-gradient-to-r mt-2 mb-5
      to-gray-600 from-orange-100 w-16 md:w-3/4 rounded-md button relative" ><button
     
@@ -96,4 +97,16 @@ if (tamañoPantalla > "767") {
     const button = document.querySelector(".button");
   });
 }
-const hijos = carrusel.children;
+const informacionComentario = document.querySelector("#comentario");
+const comentarios = document.querySelector(".escrito");
+function añadirComentario() {
+  const informacion = informacionComentario.value;
+  comentarios.innerHTML += `<div class="ml-6 mb-2 text-lg bg-slate-50 ">${informacion}</div>`;
+  informacionComentario.value = "";
+}
+const tecla = document;
+tecla.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    añadirComentario();
+  }
+});
