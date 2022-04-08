@@ -22,16 +22,16 @@
         <button class="siguiente" onclick="name()">Next</button>
       </div>
     </div>
-    <div class="mb-4">
-      <h2 class="font-semibold text-xl">Escribe tu Comentario:</h2>
+    <div class="mb-4 ">
+      <h2 class="font-semibold text-xl ml-6">Escribe tu Comentario:</h2>
       <hr class="font-semibold text-black">
       <div class="w-full flex flex-col items-center">
 
-        <textarea name="comentario" id="comentario" cols="4" rows="5" name="comentario" class="border-2 border-black w-1/3" placeholder="Escribe tu comentario"></textarea>
-        <button class="bg-slate-400 w-1/5 rounded-lg mt-5 tecla" onclick="añadirComentario()"> Enviar</button>
+        <textarea name="comentario" id="comentario" cols="4" rows="5" name="comentario" class="border-2 border-black w-1/3 focus:border-2 active:bg-blue-50 focus:ring-1 focus:ring-gray-600 focus:outline-none" placeholder="Escribe tu comentario"></textarea>
+        <button class="bg-slate-400 w-1/5 rounded-lg mt-5 text-xl tecla" onclick="añadirComentario()"> Enviar</button>
       </div>
       <div class="">
-        <h2 class="font-semibold text-xl">Comentarios escritos</h2>
+        <h2 class="font-semibold text-xl ml-5">Comentarios escritos</h2>
         <div class="escrito bg-white w-full"></div>
       </div>
     </div>
@@ -64,7 +64,7 @@
         <ol class="text-lg">
           <li class="underline"><a class="cursor-pointer" href="/src/templates/acercaDeNosotros.html">Acerca de nosotros</a></li>
           <li class="underline"><a class="cursor-pointer">Soporte</a></li>
-          <li class="underline"><a class="cursor-pointer">Aviso y Privacidad</a></li>
+          <li class="underline"><a class="cursor-pointer" href="src/templates/avisoyPrivacidad.html">Aviso y Privacidad</a></li>
         </ol>
       </div>
     </footer>
