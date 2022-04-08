@@ -64,7 +64,7 @@ function slider(params) {
     class="border-2 border-slate-500 w-11/12 h-96 sm:h-96 md:w-4/5 md:h-full  text-center flex flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500 relative"
   >
     <img
-      class="w-3/5 h-3/4"
+      class="w-3/5 h-3/4 rounded-md"
       src="${url}"
       alt="${nombre}"
     />
