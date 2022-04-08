@@ -61,7 +61,7 @@ let seleccionado;
 function slider(params) {
   const { nombre, precio, descripcion, url } = params;
   const retornar = `<div
-    class="border-2 border-slate-500 w-11/12 h-80 sm:h-80 md:w-2/6 md:h-1/2 text-center flex flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500 relative"
+    class="border-2 border-slate-500 w-11/12 h-96 sm:h-96 md:w-4/5 md:h-full  text-center flex flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500 relative"
   >
     <img
       class="w-3/5 h-3/4"
