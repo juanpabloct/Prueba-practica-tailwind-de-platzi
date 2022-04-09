@@ -74,7 +74,7 @@ function slider(params) {
     <div class="text-sm md:text-lg">
       ${descripcion}
       </div>
-      <div>&starf; &starf; &starf; &starf; &star;</div>
+      <div>&starf; &starf; &starf; &starf; &starf;</div>
     <a class="bg-gradient-to-r mt-2 mb-5
      to-gray-600 from-orange-100 w-16 md:w-3/4 rounded-md button relative" ><button
     
