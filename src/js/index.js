@@ -56,7 +56,6 @@ siguiente.addEventListener("click", () => {
   slider(datos);
   const button = document.querySelector(".button");
 });
-const tamañoPantalla = window.innerWidth;
 const carrusel = document.querySelector(".carrusel");
 let seleccionado;
 function slider(params) {
@@ -78,24 +77,25 @@ function slider(params) {
     <a class="bg-gradient-to-r mt-2 mb-5
      to-gray-600 from-orange-100 w-16 md:w-3/4 rounded-md button relative" ><button
     
-      class=" text-sm"
+      class="button text-sm"
     >
     Comprar
     </button></a>
     </div>`;
-  return tamañoPantalla < "767"
+  return window.innerWidth < "767"
     ? (carrusel.innerHTML = retornar)
     : (carrusel.innerHTML += retornar);
 }
-if (tamañoPantalla < "767") {
+if (window.innerWidth < "767") {
   slider(informacionComida[0]);
-}
-if (tamañoPantalla > "767") {
-  informacionComida.forEach((element) => {
-    const { nombre, url, descripcion, precio } = element;
-    slider(element);
-    const button = document.querySelector(".button");
-  });
+} else {
+  if (window.innerWidth > "767") {
+    informacionComida.forEach((element) => {
+      const { nombre, url, descripcion, precio } = element;
+      slider(element);
+      const button = document.querySelector(".button");
+    });
+  }
 }
 const informacionComentario = document.querySelector("#comentario");
 const comentarios = document.querySelector(".escrito");
@@ -109,4 +109,27 @@ tecla.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     añadirComentario();
   }
+});
+const boton = document.querySelector(".button");
+const buscar = document.querySelector(".search");
+
+buscar.addEventListener("click", () => {
+  const busqueda = document.querySelector(".inputSearch").value;
+  const carruselCompleto = carrusel.children;
+  for (let i in carruselCompleto) {
+    try {
+      const hijosCarrusel =
+        carruselCompleto[i]?.children[1]?.classList.add("resultado");
+    } catch (error) {}
+  }
+  const resultado = document.querySelectorAll(".resultado");
+  for (let r in resultado) {
+    const similitudPeticion = resultado[r]?.innerHTML;
+    console.log(similitudPeticion);
+    if (similitudPeticion == busqueda) {
+      console.log(r);
+    }
+  }
+  /*const resultado =
+    carrusel.children[0].children[1].classList.add("encontrado");*/
 });
