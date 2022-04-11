@@ -118,18 +118,20 @@ buscar.addEventListener("click", () => {
   const carruselCompleto = carrusel.children;
   for (let i in carruselCompleto) {
     try {
-      const hijosCarrusel =
-        carruselCompleto[i]?.children[1]?.classList.add("resultado");
+      carruselCompleto[i]?.children[1]?.classList.add("resultado");
     } catch (error) {}
   }
   const resultado = document.querySelectorAll(".resultado");
-  for (let r in resultado) {
-    const similitudPeticion = resultado[r]?.innerHTML;
-    console.log(similitudPeticion);
-    if (similitudPeticion == busqueda) {
-      console.log(r);
-    }
+  for (const element of resultado) {
+    const similitudPeticion = element?.innerHTML?.toLowerCase();
+    try {
+      const parent = element.parentNode;
+      if (similitudPeticion.includes(busqueda)) {
+        parent.classList.remove("hidden");
+        parent.classList.replace("col-span-1", "col-span-2");
+      } else {
+        parent.classList.add("hidden");
+      }
+    } catch (error) {}
   }
-  /*const resultado =
-    carrusel.children[0].children[1].classList.add("encontrado");*/
 });
