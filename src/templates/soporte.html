@@ -9,9 +9,17 @@
     <title>Soporte</title>
 </head>
 <body>
-<div class="bg-black text-gray-50 text-center text-xl flex flex-col justify-center h-10"><a href="../../index.html">My Eating like</a></div>
-  <main class="">
-    <div class="bg-gradient-to-bl from-pink-200 to-slate-400 text-center">
+  <header>
+    <div class="text-center text-white bg-black h-10 text-lg flex justify-center items-center  w-full z-10 "><span class="bg-clip-text text-transparent bg-gradient-to-t from-stone-50 to-orange-500"><a href="../../index.html">My Eating like</a></span></div>
+    <nav class=" border-2 border-b-slate-400 bg-gradient-to-t bg-white  w-full">
+      <ul class="flex justify-around">
+        <li><a href="../../index.html">Pagina Principal</a></li>
+        <li><a href="./acercaDeNosotros.html">Acerca de nosotros</a></li>
+        <li><a href="./soporte.html">Soporte</a></li>
+      </ul>
+    </nav>
+  </header>  <main class="">
+    <div class="bg-gradient-to-bl bg-gray-700 text-center">
       <h1 class="text-lg lg:text-xl xl:text-2xl text-white">Soporte</h1>
     </div>
   </main>
@@ -21,20 +29,20 @@
     </div>
   </section>
   <hr>
-  <section class="mt-11">
-    <div class="ml-10 ">
+  <section class="mt-11 ml-10">
       <form action="">
         <label for="" class="text-lg md:text-xl xl-text-2xl ">Escribe tu mensaje de duda sugerencia o problema que tengas. (●'◡'●)</label></br>
         <textarea class=" mt-8 border-2 border-black w-1/2 escribe" placeholder="Escribe aqui" name="" id="" cols="50" rows="5"></textarea>
       </form>
       <div class=" ml-2 mt-7">
-        <button class="bg-gradient-to-bl from-pink-200 to-slate-400 text-center h-10 rounded-lg w-1/2 presionar">Enviar</button>
+        <button class="bg-gradient-to-bl from-pink-50 to-slate-400 text-center h-10 rounded-lg w-1/2 presionar">Enviar</button>
       </div>
-    </div>
   </section>
-    <footer class="relative bottom-0 text-center grid grid-cols-2 bg-slate-300 mt-14 ">
-        <div class="">
+    <footer class="relative bottom-0 text-center  bg-slate-300 mt-14 ">
             <h1 class="text-base  lg:text-xl font-semibold">Contactanos Por</h1>
+            <div class="grid grid-cols-2">
+            <section class="">
+
     <ul class="text-base sm:text-sm md:text-lg">
       <li class="underline">
         <a href="https://www.facebook.com/" target="_blank"
@@ -55,14 +63,15 @@
         ></a>
       </li>
     </ul>
-  </div>
-  <div class="">
+    </section>  
+  <section class="">
       <h1 class="text-base lg:text-xl font-semibold">Soporte Tecnico</h1>
       <ol class="text-base sm:text-sm md:text-lg">
           <li class="underline"><a class="cursor-pointer" href="/src/templates/acercaDeNosotros.html">Acerca de nosotros</a></li>
           <li class="underline"><a class="cursor-pointer" href="./soporte.html">Soporte</a></li>
           <li class="underline"><a class="cursor-pointer" href="./avisoyPrivacidad.html">Aviso y Privacidad</a></li>
     </ol>
+  </section>
   </div>
 </footer>
 <script src="../js/soporte.js"></script>

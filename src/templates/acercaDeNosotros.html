@@ -8,17 +8,22 @@
     <title>Acerca de Nosotros</title>
   </head>
   <body>
-    <div class="text-center flex items-center flex-col">
-      <div class="bg-black text-center  text-white w-full h-10 flex justify-center flex-col">
-        <a href="../../index.html" >My Eating Like</a>
-      </div>
+    <nav class=" border-2 border-b-slate-400 bg-gradient-to-t bg-white  w-full">
+      <div class="text-center text-white bg-black h-10 text-lg flex justify-center items-center  w-full z-10 "><span class="bg-clip-text text-transparent bg-gradient-to-t from-stone-50 to-orange-500">My Eating like</span></div>
+      <ul class="flex justify-around">
+        <li><a href="../../index.html">Pagina Principal</a></li>
+        <li><a href="./acercaDeNosotros.html">Acerca de nosotros</a></li>
+        <li><a href="./soporte.html">Soporte</a></li>
+      </ul>
+    </nav>
+    <main class="text-center flex items-center flex-col">
       <div
-        class="text-2xl h-12 flex w-full flex-col justify-center font-semibold bg-gradient-to-l from-slate-400 to-zinc-100 mb-10 relative"
+        class="text-xl h-12 flex w-full flex-col justify-center font-semibold bg-gradient-to-l from-slate-400 to-zinc-100 mb-10 relative"
       >
         Acerca De Mi
       </div>
-      <div class="flex flex-col items-center carrusel w-4/5">
-        <div
+      <article class="flex flex-col items-center carrusel w-4/5">
+        <section
           class="h-96 w-screen md:w-10/12 lg:w-2/3 bg-gradient-to-bl to-zinc-200 from-slate-500 grid grid-cols-1 justify-items-center shadow-md shadow-gray-600 hover:shadow-lg hover:shadow-zinc-700 rounded-md"
         >
           <div
@@ -34,8 +39,8 @@
               Postgresql.
             </p>
           </div>
-        </div>
-        <div
+        </section>
+        <section
           class="h-96 w-screen md:w-10/12 lg:w-2/3 bg-gradient-to-bl to-slate-400 from-rose-100 grid-cols-1 justify-items-center hidden shadow-md shadow-gray-600 hover:shadow-lg hover:shadow-zinc-700 rounded-md"
         >
           <div
@@ -74,8 +79,8 @@
               </ul>
             </div>
           </div>
-        </div>
-        <div
+        </section>
+        <section
           class="h-96 w-screen md:w-10/12 lg:w-2/3 bg-gradient-to-tl to-slate-400 from-orange-200 grid-cols-1 justify-items-center justify-evenly hidden shadow-md shadow-gray-600 hover:shadow-lg hover:shadow-zinc-700 rounded-md"
         >
           <div
@@ -113,14 +118,14 @@
               <li></li>
             </ol>
           </div>
-        </div>
+        </section>
       </div>
       <div
         class="c-boton flex flex-row justify-evenly w-full bg-gradient-to-l mt-1 h-12 items-center from-slate-400 to-zinc-100 mb-3"
       >
         <i class="fa-solid fa-circle boton text-3xl"></i>
-      </div>
-    </div>
+    </article>
+    </main>
     <footer class="relative bottom-0 text-center grid grid-cols-2 bg-slate-300 mt-14 ">
       <div class="">
           <h1 class="text-base  lg:text-xl font-semibold">Contactanos Por</h1>
@@ -128,7 +133,7 @@
     <li class="underline">
       <a href="https://www.facebook.com/" target="_blank"
         ><i class="fa-brands fa-facebook"></i> Facebook
-    </a>
+      </a>
     </li>
     <li class="underline">
       <a href="https://www.instagram.com/?hl=es" target="_blank"
