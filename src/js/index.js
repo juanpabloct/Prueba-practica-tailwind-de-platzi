@@ -67,7 +67,7 @@ function slider(params) {
       alt="${nombre}"
     />
     <div class="capitalize font-semibold">${nombre}</div>
-    <div class="font-medium">Valor: 100$</div>
+    <div class="font-medium"><b>Valor</b>: 100$</div>
     <div class="text-sm md:text-lg">
       ${descripcion}
       </div>
@@ -149,17 +149,28 @@ for (let i of buttonComprar) {
     const descripcion = padreBoton[3].innerHTML;
     let unidades = 1;
     contenidoModal.innerHTML = `
-    <img class="h-24"src="${imagen}"/>
-    <h2>${nombre}</h2>
-    <p>${descripcion}</p>
-    <p>${precio}</p>
-    <p>unidades:<span class="unidad">${unidades}</span><p/>
-    <div class="flex flex-row setUnidades">
-    <button >-</button>
-    <button >+</button>
-    </div>
-    <button>Comprar</button>
+      <div class="flex flex-col items-center justify-center">
+        <img class="h-24 w-24 rounded-full"src="${imagen}"/>
+        <h2 class="text-base md:text-2xl font-medium capitalize text-center">${nombre}</h2>
+      </div>
+      <div class="flex flex-col justify-items-start text-center text-sm md:text-lg">
+        <p><b>Descripción:</b>${descripcion}</p>
+        <p>${precio}</p>
+        <p><b>unidades</b>:<span class="unidad">${unidades}</span><p/>
+      </div>
+      <div class="flex flex-row setUnidades w-full justify-center mb-2 divide-x-2">
+        <button class="w-1/4 bg-slate-400 hover:bg-slate-500 rounded-sm">-</button>
+        <button  class="w-1/4 bg-slate-400 hover:bg-slate-500 rounded-sm" >+</button>
+      </div>
+      <button class="w-1/2 bg-slate-300 hover:bg-slate-500 rounded-sm comprar">Comprar</button>
     `;
+    const comprar = document.querySelector(".comprar");
+    comprar.addEventListener("click", (e) => {
+      setTimeout(() => {
+        document.querySelector(".c-modal").classList.replace("flex", "hidden");
+        alert("Compra realizada con exito");
+      }, 1000);
+    });
     //Contenedor de botones de cambio de unidades
     const cBotonesCambiadores = document.querySelector(".setUnidades").children;
     const unidad = document.querySelector(".unidad");
