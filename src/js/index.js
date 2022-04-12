@@ -32,9 +32,7 @@ const informacionComida = [
     url: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=500&q=80",
   },
 ];
-function alertando() {
-  alert("Hola valery estas aprendiendo");
-}
+
 let contador = 0;
 const copiaInformacionComida = informacionComida.slice();
 const antes = document.querySelector(".antes");
@@ -61,10 +59,10 @@ let seleccionado;
 function slider(params) {
   const { nombre, precio, descripcion, url } = params;
   const retornar = `<div
-    class=" col-span-1 border-2 border-slate-500 w-11/12 h-96 sm:h-96 md:w-4/5 md:h-full  text-center flex flex-col md:flex-col lg:flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500 relative"
+    class=" col-span-1 border-2 border-slate-500 w-11/12 h-96 sm:h-96 md:w-3/4 md:h-full  text-center flex flex-col md:flex-col lg:flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500 relative"
   >
     <img
-      class="w-3/4 h-60 lg:w-3/5 lg:h-3/4 rounded-md"
+      class="w-4/5 h-48 sm:h-52 lg:w-3/4  lg:h-56 rounded-md"
       src="${url}"
       alt="${nombre}"
     />
@@ -74,10 +72,10 @@ function slider(params) {
       ${descripcion}
       </div>
       <div>&starf; &starf; &starf; &starf; &starf;</div>
-    <a class="bg-gradient-to-r mt-2 mb-5
-     to-gray-600 from-orange-100 w-16 md:w-3/4 rounded-md button relative" ><button
+    <a class=" mt-2 mb-5
+     bg-gray-600 w-16 md:w-3/4 rounded-md button relative button"><button
     
-      class="button text-sm"
+      class="text-sm"
     >
     Comprar
     </button></a>
@@ -116,9 +114,9 @@ const buscar = document.querySelector(".search");
 buscar.addEventListener("click", () => {
   const busqueda = document.querySelector(".inputSearch").value;
   const carruselCompleto = carrusel.children;
-  for (let i in carruselCompleto) {
+  for (let i of carruselCompleto) {
     try {
-      carruselCompleto[i]?.children[1]?.classList.add("resultado");
+      i.children[1]?.classList.add("resultado");
     } catch (error) {}
   }
   const resultado = document.querySelectorAll(".resultado");
@@ -135,3 +133,52 @@ buscar.addEventListener("click", () => {
     } catch (error) {}
   }
 });
+const valorDeBoton = [];
+function presionar(params) {
+  valorDeBoton.push(params);
+}
+// Modal
+const buttonComprar = document.querySelectorAll(".button");
+for (let i of buttonComprar) {
+  i.addEventListener("click", () => {
+    const contenidoModal = document.querySelector(".contenido");
+    const padreBoton = i.parentNode.children;
+    const imagen = padreBoton[0].getAttribute("src");
+    const nombre = padreBoton[1].innerHTML;
+    const precio = padreBoton[2].innerHTML;
+    const descripcion = padreBoton[3].innerHTML;
+    let unidades = 1;
+    contenidoModal.innerHTML = `
+    <img class="h-24"src="${imagen}"/>
+    <h2>${nombre}</h2>
+    <p>${descripcion}</p>
+    <p>${precio}</p>
+    <p>unidades:<span class="unidad">${unidades}</span><p/>
+    <div class="flex flex-row setUnidades">
+    <button >-</button>
+    <button >+</button>
+    </div>
+    <button>Comprar</button>
+    `;
+    //Contenedor de botones de cambio de unidades
+    const cBotonesCambiadores = document.querySelector(".setUnidades").children;
+    const unidad = document.querySelector(".unidad");
+    cBotonesCambiadores[0].addEventListener("click", () => {
+      unidades--;
+      if (unidades === 0) {
+        unidades = 1;
+      }
+      unidad.innerHTML = unidades;
+    });
+    cBotonesCambiadores[1].addEventListener("click", () => {
+      unidades++;
+      unidad.innerHTML = unidades;
+    });
+    const contenedorModal = document.querySelector(".c-modal");
+    contenedorModal.classList.replace("hidden", "flex");
+    const cerrarModal = document.querySelector(".cerrar");
+    cerrarModal.addEventListener("click", () => {
+      contenedorModal.classList.replace("flex", "hidden");
+    });
+  });
+}
