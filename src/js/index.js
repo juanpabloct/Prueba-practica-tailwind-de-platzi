@@ -58,6 +58,7 @@ const carrusel = document.querySelector(".carrusel");
 let seleccionado;
 function slider(params) {
   const { nombre, precio, descripcion, url } = params;
+  //constructor
   const retornar = `<div
     class=" col-span-1 border-2 border-slate-500 w-11/12 h-96 sm:h-96 md:w-3/4 md:h-full  text-center flex flex-col md:flex-col lg:flex-col items-center rounded-md shadow-md shadow-slate-600 hover:shadow-lg hover:shadow-cyan-500 relative"
   >
@@ -85,8 +86,10 @@ function slider(params) {
     : (carrusel.innerHTML += retornar);
 }
 if (window.innerWidth < "767") {
+  //si la pantalla es menor a 767px sera un slider y su pocision inicia en 0
   slider(informacionComida[0]);
 } else {
+  //Si la pantalla es mayor a 767px mostrara todos los datos a la vez
   if (window.innerWidth > "767") {
     informacionComida.forEach((element) => {
       const { nombre, url, descripcion, precio } = element;
@@ -95,6 +98,7 @@ if (window.innerWidth < "767") {
     });
   }
 }
+//seccion que se trabaja con los comentarios
 const informacionComentario = document.querySelector("#comentario");
 const comentarios = document.querySelector(".escrito");
 function añadirComentario() {
@@ -111,6 +115,7 @@ tecla.addEventListener("keydown", (e) => {
 const boton = document.querySelector(".button");
 const buscar = document.querySelector(".search");
 
+//Busqueda de productos por nombre
 buscar.addEventListener("click", () => {
   const busqueda = document.querySelector(".inputSearch").value;
   const carruselCompleto = carrusel.children;
@@ -133,10 +138,7 @@ buscar.addEventListener("click", () => {
     } catch (error) {}
   }
 });
-const valorDeBoton = [];
-function presionar(params) {
-  valorDeBoton.push(params);
-}
+
 // Modal
 const buttonComprar = document.querySelectorAll(".button");
 for (let i of buttonComprar) {
@@ -185,6 +187,7 @@ for (let i of buttonComprar) {
       unidades++;
       unidad.innerHTML = unidades;
     });
+    //Clases del modal
     const contenedorModal = document.querySelector(".c-modal");
     contenedorModal.classList.replace("hidden", "flex");
     const cerrarModal = document.querySelector(".cerrar");
