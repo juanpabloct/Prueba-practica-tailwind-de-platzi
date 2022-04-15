@@ -68,7 +68,7 @@ function slider(params) {
       alt="${nombre}"
     />
     <div class="capitalize font-semibold">${nombre}</div>
-    <div class="font-medium"><b>Valor</b>: 100$</div>
+    <div class="font-medium"><b>Valor:</b><span>100</span>$</div>
     <div class="text-sm md:text-lg">
       ${descripcion}
       </div>
@@ -98,6 +98,7 @@ if (window.innerWidth < "767") {
     });
   }
 }
+
 //seccion que se trabaja con los comentarios
 const informacionComentario = document.querySelector("#comentario");
 const comentarios = document.querySelector(".escrito");
@@ -157,7 +158,7 @@ for (let i of buttonComprar) {
       </div>
       <div class="flex flex-col justify-items-start text-center text-sm md:text-lg">
         <p><b>Descripción:</b>${descripcion}</p>
-        <p>${precio}</p>
+        <p class="precio">${precio}</p>
         <p><b>unidades</b>:<span class="unidad">${unidades}</span><p/>
       </div>
       <div class="flex flex-row setUnidades w-full justify-center mb-2 divide-x-2">
@@ -176,18 +177,24 @@ for (let i of buttonComprar) {
     //Contenedor de botones de cambio de unidades
     const cBotonesCambiadores = document.querySelector(".setUnidades").children;
     const unidad = document.querySelector(".unidad");
+    let valorProducto = document.querySelector(".precio").children[1];
+    let precioBase = valorProducto.textContent;
     cBotonesCambiadores[0].addEventListener("click", () => {
       unidades--;
       if (unidades === 0) {
         unidades = 1;
       }
+      const valorTotal = unidades * Number(precioBase);
+      valorProducto.innerHTML = valorTotal;
       unidad.innerHTML = unidades;
     });
     cBotonesCambiadores[1].addEventListener("click", () => {
       unidades++;
+      const valorTotal = unidades * Number(precioBase);
+      valorProducto.innerHTML = valorTotal;
       unidad.innerHTML = unidades;
     });
-    //Clases del modal
+    //Dom del modal
     const contenedorModal = document.querySelector(".c-modal");
     contenedorModal.classList.replace("hidden", "flex");
     const cerrarModal = document.querySelector(".cerrar");
